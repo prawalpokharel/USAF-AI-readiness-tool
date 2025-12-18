@@ -1,0 +1,241 @@
+{
+  "version": "1.0",
+  "title": "Risk Rules (Public, Non-Operational)",
+  "fields": {
+    "severity": [
+      "RED",
+      "AMBER"
+    ],
+    "operator": [
+      "==",
+      "<=",
+      ">=",
+      "<",
+      ">",
+      "in",
+      "not_in"
+    ]
+  },
+  "rules": [
+    {
+      "id": "RR_MONITORING_NONE",
+      "severity": "RED",
+      "when": [
+        {
+          "question_id": "monitoring_drift",
+          "op": "==",
+          "value": 0
+        }
+      ],
+      "message": "No production monitoring; elevated risk of silent model failure and undetected drift.",
+      "evidence_needed": [
+        "Monitoring plan",
+        "Metric definitions",
+        "Alerting thresholds",
+        "Owner on-call/response plan"
+      ],
+      "recommendation_ids": [
+        "REC_MONITORING_BASELINE",
+        "REC_DRIFT_RESPONSE_PLAYBOOK"
+      ]
+    },
+    {
+      "id": "RR_DATA_OWNERSHIP_NONE",
+      "severity": "RED",
+      "when": [
+        {
+          "question_id": "data_governance_ownership",
+          "op": "==",
+          "value": 0
+        }
+      ],
+      "message": "No defined data ownership; accountability and compliance risk.",
+      "evidence_needed": [
+        "Named data steward(s)",
+        "Access policy",
+        "Retention policy",
+        "Data dictionary"
+      ],
+      "recommendation_ids": [
+        "REC_DEFINE_DATA_OWNERS",
+        "REC_DATA_GOVERNANCE_POLICY"
+      ]
+    },
+    {
+      "id": "RR_CHANGE_CONTROL_NONE",
+      "severity": "RED",
+      "when": [
+        {
+          "question_id": "change_control",
+          "op": "==",
+          "value": 0
+        }
+      ],
+      "message": "No change control for model updates; risk of uncontrolled deployments.",
+      "evidence_needed": [
+        "Release process",
+        "Approval workflow",
+        "Versioning strategy",
+        "Rollback plan"
+      ],
+      "recommendation_ids": [
+        "REC_CHANGE_CONTROL_GATING",
+        "REC_RELEASE_CHECKLIST"
+      ]
+    },
+    {
+      "id": "RR_AUDITABILITY_NONE",
+      "severity": "RED",
+      "when": [
+        {
+          "question_id": "auditability",
+          "op": "==",
+          "value": 0
+        }
+      ],
+      "message": "Outputs not auditable; inability to investigate failures and ensure accountability.",
+      "evidence_needed": [
+        "Logging spec",
+        "Trace IDs",
+        "Reproducibility notes",
+        "Audit review schedule"
+      ],
+      "recommendation_ids": [
+        "REC_AUDIT_LOGGING",
+        "REC_REPRODUCIBLE_PIPELINES"
+      ]
+    },
+    {
+      "id": "RR_PRIVACY_REVIEW_NONE",
+      "severity": "RED",
+      "when": [
+        {
+          "question_id": "privacy_review",
+          "op": "==",
+          "value": 0
+        }
+      ],
+      "message": "No privacy review; elevated risk of inappropriate data handling.",
+      "evidence_needed": [
+        "Privacy assessment",
+        "Data minimization rationale",
+        "Access controls",
+        "Retention review"
+      ],
+      "recommendation_ids": [
+        "REC_PRIVACY_ASSESSMENT",
+        "REC_DATA_MINIMIZATION"
+      ]
+    },
+    {
+      "id": "RR_VALIDATION_WEAK",
+      "severity": "AMBER",
+      "when": [
+        {
+          "question_id": "validation_testing",
+          "op": "<=",
+          "value": 1
+        }
+      ],
+      "message": "Limited validation; reliability risk under real-world conditions.",
+      "evidence_needed": [
+        "Acceptance criteria",
+        "Test plan",
+        "Robustness checks",
+        "Independent review notes (if applicable)"
+      ],
+      "recommendation_ids": [
+        "REC_VALIDATION_ACCEPTANCE",
+        "REC_ROBUSTNESS_TESTS"
+      ]
+    },
+    {
+      "id": "RR_INCIDENT_RESPONSE_WEAK",
+      "severity": "AMBER",
+      "when": [
+        {
+          "question_id": "incident_response",
+          "op": "<=",
+          "value": 1
+        }
+      ],
+      "message": "Incident response is ad hoc; slower recovery from model failure.",
+      "evidence_needed": [
+        "Incident runbook",
+        "Escalation matrix",
+        "Rollback procedure",
+        "Postmortem template"
+      ],
+      "recommendation_ids": [
+        "REC_IR_RUNBOOK",
+        "REC_ROLLBACK_STRATEGY"
+      ]
+    },
+    {
+      "id": "RR_HUMAN_OVERSIGHT_WEAK",
+      "severity": "AMBER",
+      "when": [
+        {
+          "question_id": "human_oversight",
+          "op": "<=",
+          "value": 1
+        }
+      ],
+      "message": "Oversight unclear; accountability gaps for AI-assisted decisions.",
+      "evidence_needed": [
+        "HITL definition",
+        "Override workflow",
+        "Accountable role assignment",
+        "Review cadence"
+      ],
+      "recommendation_ids": [
+        "REC_DEFINE_HITL",
+        "REC_ACCOUNTABILITY_RACI"
+      ]
+    },
+    {
+      "id": "RR_BIAS_FAIRNESS_WEAK",
+      "severity": "AMBER",
+      "when": [
+        {
+          "question_id": "bias_fairness",
+          "op": "<=",
+          "value": 1
+        }
+      ],
+      "message": "Bias/fairness not adequately assessed for the use case.",
+      "evidence_needed": [
+        "Fairness metrics",
+        "Subgroup evaluation plan",
+        "Mitigation strategy",
+        "Monitoring plan"
+      ],
+      "recommendation_ids": [
+        "REC_FAIRNESS_METRICS",
+        "REC_BIAS_MITIGATION_PLAN"
+      ]
+    },
+    {
+      "id": "RR_SUSTAINMENT_RISK",
+      "severity": "AMBER",
+      "when": [
+        {
+          "question_id": "ownership_budget",
+          "op": "<=",
+          "value": 1
+        }
+      ],
+      "message": "Sustainment ownership/funding unclear; risk of pilot-to-production failure.",
+      "evidence_needed": [
+        "Named owner",
+        "Sustainment budget line",
+        "Maintenance plan",
+        "Lifecycle roadmap"
+      ],
+      "recommendation_ids": [
+        "REC_SUSTAINMENT_OWNERSHIP",
+        "REC_LIFECYCLE_ROADMAP"
+      ]
+    }
+  ]
+}

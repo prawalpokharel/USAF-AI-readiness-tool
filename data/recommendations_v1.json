@@ -1,0 +1,324 @@
+{
+  "version": "1.0",
+  "title": "Recommendation Library (Public, Non-Operational)",
+  "recommendations": [
+    {
+      "id": "REC_MONITORING_BASELINE",
+      "title": "Implement baseline production monitoring",
+      "why": "Monitoring detects performance degradation and data drift early, reducing operational risk.",
+      "effort": "M",
+      "owner_role": "MLOps Lead / Platform Owner",
+      "evidence_artifacts": [
+        "Monitoring dashboard",
+        "Alert thresholds",
+        "Metric definitions",
+        "Owner assignment"
+      ],
+      "tags": [
+        "mlops",
+        "monitoring",
+        "reliability"
+      ]
+    },
+    {
+      "id": "REC_DRIFT_RESPONSE_PLAYBOOK",
+      "title": "Create a drift response playbook",
+      "why": "A playbook enables consistent triage, rollback, retraining, and communication when drift occurs.",
+      "effort": "S",
+      "owner_role": "Service Owner",
+      "evidence_artifacts": [
+        "Runbook",
+        "Escalation matrix",
+        "Rollback steps"
+      ],
+      "tags": [
+        "mlops",
+        "incident-response"
+      ]
+    },
+    {
+      "id": "REC_DEFINE_DATA_OWNERS",
+      "title": "Assign data owners and stewards",
+      "why": "Clear ownership improves accountability, access control, and data quality.",
+      "effort": "S",
+      "owner_role": "Data Governance Lead",
+      "evidence_artifacts": [
+        "Steward list",
+        "Access policy",
+        "Retention policy"
+      ],
+      "tags": [
+        "data-governance"
+      ]
+    },
+    {
+      "id": "REC_DATA_GOVERNANCE_POLICY",
+      "title": "Establish and enforce data governance policies",
+      "why": "Governance reduces compliance risk and improves reproducibility.",
+      "effort": "M",
+      "owner_role": "CIO / Data Governance Board",
+      "evidence_artifacts": [
+        "Governance policy doc",
+        "Data catalog/dictionary",
+        "Audit checklist"
+      ],
+      "tags": [
+        "data-governance",
+        "compliance"
+      ]
+    },
+    {
+      "id": "REC_CHANGE_CONTROL_GATING",
+      "title": "Add gated approvals for model releases",
+      "why": "Change control prevents unreviewed updates and supports auditability.",
+      "effort": "M",
+      "owner_role": "Model Risk Owner / Release Manager",
+      "evidence_artifacts": [
+        "Approval workflow",
+        "Release criteria",
+        "Versioning policy"
+      ],
+      "tags": [
+        "governance",
+        "release"
+      ]
+    },
+    {
+      "id": "REC_RELEASE_CHECKLIST",
+      "title": "Adopt a standard model release checklist",
+      "why": "A checklist ensures documentation, testing, and security checks are completed consistently.",
+      "effort": "S",
+      "owner_role": "Release Manager",
+      "evidence_artifacts": [
+        "Checklist template",
+        "Signed release record"
+      ],
+      "tags": [
+        "governance",
+        "quality"
+      ]
+    },
+    {
+      "id": "REC_AUDIT_LOGGING",
+      "title": "Implement audit logging and traceability",
+      "why": "Audit trails enable accountability, incident investigation, and compliance reviews.",
+      "effort": "M",
+      "owner_role": "Security Lead / Platform Owner",
+      "evidence_artifacts": [
+        "Logging spec",
+        "Trace IDs",
+        "Access logs",
+        "Audit schedule"
+      ],
+      "tags": [
+        "audit",
+        "security"
+      ]
+    },
+    {
+      "id": "REC_REPRODUCIBLE_PIPELINES",
+      "title": "Make training and data pipelines reproducible",
+      "why": "Reproducibility strengthens assurance and simplifies audits and debugging.",
+      "effort": "M",
+      "owner_role": "ML Engineering Lead",
+      "evidence_artifacts": [
+        "Pinned dependencies",
+        "Dataset snapshots",
+        "Pipeline scripts"
+      ],
+      "tags": [
+        "reproducibility",
+        "mlops"
+      ]
+    },
+    {
+      "id": "REC_PRIVACY_ASSESSMENT",
+      "title": "Conduct a privacy assessment and document controls",
+      "why": "Privacy reviews reduce risk of improper collection and handling of sensitive information.",
+      "effort": "M",
+      "owner_role": "Privacy Officer / Compliance Lead",
+      "evidence_artifacts": [
+        "Privacy assessment",
+        "Data flow diagram",
+        "Access controls"
+      ],
+      "tags": [
+        "privacy",
+        "compliance"
+      ]
+    },
+    {
+      "id": "REC_DATA_MINIMIZATION",
+      "title": "Apply data minimization and retention controls",
+      "why": "Minimization reduces exposure and improves compliance posture.",
+      "effort": "S",
+      "owner_role": "Data Steward",
+      "evidence_artifacts": [
+        "Minimization rationale",
+        "Retention schedule"
+      ],
+      "tags": [
+        "privacy",
+        "data-governance"
+      ]
+    },
+    {
+      "id": "REC_VALIDATION_ACCEPTANCE",
+      "title": "Define acceptance criteria and validation gates",
+      "why": "Clear acceptance criteria align stakeholders and reduce deployment of weak models.",
+      "effort": "S",
+      "owner_role": "Product Owner / Model Risk Owner",
+      "evidence_artifacts": [
+        "Acceptance criteria",
+        "Validation report template"
+      ],
+      "tags": [
+        "assurance",
+        "testing"
+      ]
+    },
+    {
+      "id": "REC_ROBUSTNESS_TESTS",
+      "title": "Add robustness and stress testing",
+      "why": "Stress tests surface failure modes under distribution shifts or edge conditions.",
+      "effort": "M",
+      "owner_role": "ML Engineering Lead",
+      "evidence_artifacts": [
+        "Robustness test suite",
+        "Results summary",
+        "Mitigation notes"
+      ],
+      "tags": [
+        "assurance",
+        "robustness"
+      ]
+    },
+    {
+      "id": "REC_IR_RUNBOOK",
+      "title": "Create an incident response runbook for model issues",
+      "why": "A runbook shortens recovery time and standardizes response.",
+      "effort": "S",
+      "owner_role": "Service Owner",
+      "evidence_artifacts": [
+        "IR runbook",
+        "Escalation policy",
+        "Postmortem template"
+      ],
+      "tags": [
+        "incident-response",
+        "reliability"
+      ]
+    },
+    {
+      "id": "REC_ROLLBACK_STRATEGY",
+      "title": "Implement rollback and safe-disable mechanisms",
+      "why": "Rollback prevents prolonged impact when a model misbehaves.",
+      "effort": "M",
+      "owner_role": "Platform Owner",
+      "evidence_artifacts": [
+        "Rollback procedure",
+        "Feature flags",
+        "Safe-disable criteria"
+      ],
+      "tags": [
+        "reliability",
+        "mlops"
+      ]
+    },
+    {
+      "id": "REC_DEFINE_HITL",
+      "title": "Define human-in-the-loop oversight and override workflows",
+      "why": "Oversight reduces harm and clarifies accountability for AI-assisted decisions.",
+      "effort": "S",
+      "owner_role": "Product Owner",
+      "evidence_artifacts": [
+        "HITL policy",
+        "Override workflow",
+        "User training notes"
+      ],
+      "tags": [
+        "responsible-ai",
+        "governance"
+      ]
+    },
+    {
+      "id": "REC_ACCOUNTABILITY_RACI",
+      "title": "Create an accountability (RACI) matrix for the AI system",
+      "why": "A RACI matrix clarifies who owns decisions, risk, and approvals.",
+      "effort": "S",
+      "owner_role": "Program Manager",
+      "evidence_artifacts": [
+        "RACI matrix",
+        "Role descriptions"
+      ],
+      "tags": [
+        "governance",
+        "accountability"
+      ]
+    },
+    {
+      "id": "REC_FAIRNESS_METRICS",
+      "title": "Define fairness metrics and evaluation procedures",
+      "why": "Fairness metrics help detect disparate impacts for affected groups where applicable.",
+      "effort": "S",
+      "owner_role": "Responsible AI Lead",
+      "evidence_artifacts": [
+        "Metric definitions",
+        "Evaluation plan",
+        "Reporting template"
+      ],
+      "tags": [
+        "responsible-ai",
+        "fairness"
+      ]
+    },
+    {
+      "id": "REC_BIAS_MITIGATION_PLAN",
+      "title": "Document bias mitigation and monitoring plan",
+      "why": "Mitigation plans reduce risk and demonstrate responsible practices.",
+      "effort": "M",
+      "owner_role": "Responsible AI Lead",
+      "evidence_artifacts": [
+        "Mitigation strategy",
+        "Monitoring plan",
+        "Review cadence"
+      ],
+      "tags": [
+        "responsible-ai",
+        "fairness"
+      ]
+    },
+    {
+      "id": "REC_SUSTAINMENT_OWNERSHIP",
+      "title": "Assign sustainment ownership and funding",
+      "why": "Clear ownership and funding prevent post-pilot abandonment.",
+      "effort": "S",
+      "owner_role": "Program Sponsor",
+      "evidence_artifacts": [
+        "Owner assignment",
+        "Budget line",
+        "Support model"
+      ],
+      "tags": [
+        "sustainment",
+        "program-management"
+      ]
+    },
+    {
+      "id": "REC_LIFECYCLE_ROADMAP",
+      "title": "Publish a lifecycle roadmap and review cadence",
+      "why": "Roadmaps keep stakeholders aligned on retraining and maintenance expectations.",
+      "effort": "S",
+      "owner_role": "Product Owner",
+      "evidence_artifacts": [
+        "Lifecycle roadmap",
+        "Review schedule",
+        "Change log"
+      ],
+      "tags": [
+        "sustainment",
+        "mlops"
+      ]
+    }
+  ]
+}

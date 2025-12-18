@@ -1,0 +1,631 @@
+{
+  "version": "1.0",
+  "title": "USAF AI Readiness & Governance Assessment Tool (Public, Non-Operational)",
+  "scale": {
+    "type": "ordinal",
+    "min": 0,
+    "max": 3,
+    "labels": {
+      "0": "Not in place",
+      "1": "Basic / ad hoc",
+      "2": "Defined / repeatable",
+      "3": "Measured / optimized"
+    }
+  },
+  "domains": [
+    {
+      "id": "data_interop",
+      "name": "Data & Interoperability",
+      "weight": 0.2,
+      "questions": [
+        {
+          "id": "data_availability",
+          "text": "Data availability for the intended use case (non-sensitive, accessible, and sufficient volume).",
+          "options": [
+            {
+              "label": "None / unknown",
+              "score": 0
+            },
+            {
+              "label": "Limited (partial, fragmented)",
+              "score": 1
+            },
+            {
+              "label": "Moderate (most needed sources)",
+              "score": 2
+            },
+            {
+              "label": "Extensive (complete + timely sources)",
+              "score": 3
+            }
+          ]
+        },
+        {
+          "id": "data_quality_controls",
+          "text": "Data quality controls (validation, missingness handling, schema checks).",
+          "options": [
+            {
+              "label": "No controls",
+              "score": 0
+            },
+            {
+              "label": "Manual / inconsistent checks",
+              "score": 1
+            },
+            {
+              "label": "Automated checks for key datasets",
+              "score": 2
+            },
+            {
+              "label": "Comprehensive automated checks with dashboards",
+              "score": 3
+            }
+          ]
+        },
+        {
+          "id": "data_lineage_versioning",
+          "text": "Data lineage and versioning (ability to trace sources and reproduce datasets).",
+          "options": [
+            {
+              "label": "Not tracked",
+              "score": 0
+            },
+            {
+              "label": "Partially tracked in documents",
+              "score": 1
+            },
+            {
+              "label": "Tracked with tooling for most pipelines",
+              "score": 2
+            },
+            {
+              "label": "End-to-end lineage + reproducible snapshots",
+              "score": 3
+            }
+          ]
+        },
+        {
+          "id": "data_governance_ownership",
+          "text": "Defined data ownership and governance (stewards, access rules, retention).",
+          "options": [
+            {
+              "label": "No owners / unclear",
+              "score": 0
+            },
+            {
+              "label": "Owners exist but informal",
+              "score": 1
+            },
+            {
+              "label": "Owners + policies defined and used",
+              "score": 2
+            },
+            {
+              "label": "Owners + policies audited and enforced",
+              "score": 3
+            }
+          ]
+        },
+        {
+          "id": "interop_standards",
+          "text": "Interoperability and standards (APIs, shared formats, integration readiness).",
+          "options": [
+            {
+              "label": "Siloed / no integration plan",
+              "score": 0
+            },
+            {
+              "label": "Some integrations, mostly manual",
+              "score": 1
+            },
+            {
+              "label": "Standard APIs / formats for key systems",
+              "score": 2
+            },
+            {
+              "label": "Enterprise-grade integration + documented contracts",
+              "score": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mlops_infra",
+      "name": "Infrastructure & MLOps",
+      "weight": 0.2,
+      "questions": [
+        {
+          "id": "compute_environment",
+          "text": "Compute environment readiness (dev/test/prod separation, scalable compute).",
+          "options": [
+            {
+              "label": "No stable environment",
+              "score": 0
+            },
+            {
+              "label": "Single shared environment",
+              "score": 1
+            },
+            {
+              "label": "Separate dev/test/prod with basic scaling",
+              "score": 2
+            },
+            {
+              "label": "Hardened environments with elastic scaling",
+              "score": 3
+            }
+          ]
+        },
+        {
+          "id": "ci_cd_models",
+          "text": "CI/CD for models (repeatable builds, automated tests, approvals).",
+          "options": [
+            {
+              "label": "None",
+              "score": 0
+            },
+            {
+              "label": "Manual releases",
+              "score": 1
+            },
+            {
+              "label": "Partial automation + checks",
+              "score": 2
+            },
+            {
+              "label": "Full CI/CD with gated approvals",
+              "score": 3
+            }
+          ]
+        },
+        {
+          "id": "monitoring_drift",
+          "text": "Monitoring (performance, drift, data quality in production).",
+          "options": [
+            {
+              "label": "No monitoring",
+              "score": 0
+            },
+            {
+              "label": "Basic logs only",
+              "score": 1
+            },
+            {
+              "label": "Dashboards + alerts for key metrics",
+              "score": 2
+            },
+            {
+              "label": "Automated drift detection + response playbooks",
+              "score": 3
+            }
+          ]
+        },
+        {
+          "id": "security_controls",
+          "text": "Security controls (access, secrets, vulnerability management for ML stack).",
+          "options": [
+            {
+              "label": "Minimal / unknown",
+              "score": 0
+            },
+            {
+              "label": "Some controls but inconsistent",
+              "score": 1
+            },
+            {
+              "label": "Standard controls documented and applied",
+              "score": 2
+            },
+            {
+              "label": "Controls audited + continuous improvement",
+              "score": 3
+            }
+          ]
+        },
+        {
+          "id": "incident_response",
+          "text": "Incident response for model failures (rollback, escalation, postmortems).",
+          "options": [
+            {
+              "label": "No process",
+              "score": 0
+            },
+            {
+              "label": "Ad hoc handling",
+              "score": 1
+            },
+            {
+              "label": "Documented IR process + rollback path",
+              "score": 2
+            },
+            {
+              "label": "Regular drills + mature postmortems",
+              "score": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "governance_assurance",
+      "name": "Model Governance & Assurance",
+      "weight": 0.2,
+      "questions": [
+        {
+          "id": "documentation_model_cards",
+          "text": "Model documentation (model cards, datasheets, assumptions, limitations).",
+          "options": [
+            {
+              "label": "None",
+              "score": 0
+            },
+            {
+              "label": "Partial / inconsistent docs",
+              "score": 1
+            },
+            {
+              "label": "Standard docs required for deployments",
+              "score": 2
+            },
+            {
+              "label": "Docs versioned + reviewed + auditable",
+              "score": 3
+            }
+          ]
+        },
+        {
+          "id": "validation_testing",
+          "text": "Validation and testing (robustness, stress tests, acceptance criteria).",
+          "options": [
+            {
+              "label": "No formal testing",
+              "score": 0
+            },
+            {
+              "label": "Basic accuracy tests only",
+              "score": 1
+            },
+            {
+              "label": "Multiple tests + defined acceptance criteria",
+              "score": 2
+            },
+            {
+              "label": "Comprehensive testing + independent review",
+              "score": 3
+            }
+          ]
+        },
+        {
+          "id": "change_control",
+          "text": "Change control (approvals, traceability for model updates).",
+          "options": [
+            {
+              "label": "No change control",
+              "score": 0
+            },
+            {
+              "label": "Informal approvals",
+              "score": 1
+            },
+            {
+              "label": "Defined approvals + traceability",
+              "score": 2
+            },
+            {
+              "label": "Audited change control + release governance",
+              "score": 3
+            }
+          ]
+        },
+        {
+          "id": "human_oversight",
+          "text": "Human oversight (HITL requirements, override, accountability).",
+          "options": [
+            {
+              "label": "No defined oversight",
+              "score": 0
+            },
+            {
+              "label": "Oversight exists but unclear",
+              "score": 1
+            },
+            {
+              "label": "Clear oversight + override procedures",
+              "score": 2
+            },
+            {
+              "label": "Oversight measured + periodically reviewed",
+              "score": 3
+            }
+          ]
+        },
+        {
+          "id": "auditability",
+          "text": "Auditability (logs, reproducibility, decision trace for model outputs).",
+          "options": [
+            {
+              "label": "Not auditable",
+              "score": 0
+            },
+            {
+              "label": "Limited logs",
+              "score": 1
+            },
+            {
+              "label": "Logs + reproducibility for key outputs",
+              "score": 2
+            },
+            {
+              "label": "Full audit trails + periodic audits",
+              "score": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "responsible_ai",
+      "name": "Responsible AI & Ethics",
+      "weight": 0.2,
+      "questions": [
+        {
+          "id": "bias_fairness",
+          "text": "Bias and fairness assessment appropriate to the use case.",
+          "options": [
+            {
+              "label": "Not considered",
+              "score": 0
+            },
+            {
+              "label": "Discussed but not tested",
+              "score": 1
+            },
+            {
+              "label": "Tested with defined metrics",
+              "score": 2
+            },
+            {
+              "label": "Tested + mitigations + monitoring",
+              "score": 3
+            }
+          ]
+        },
+        {
+          "id": "explainability",
+          "text": "Explainability requirements (ability to justify outputs to stakeholders).",
+          "options": [
+            {
+              "label": "No explainability",
+              "score": 0
+            },
+            {
+              "label": "Basic feature importance only",
+              "score": 1
+            },
+            {
+              "label": "Explainability methods + documentation",
+              "score": 2
+            },
+            {
+              "label": "Explainability validated for users + oversight",
+              "score": 3
+            }
+          ]
+        },
+        {
+          "id": "privacy_review",
+          "text": "Privacy review and data minimization appropriate to the use case.",
+          "options": [
+            {
+              "label": "No privacy review",
+              "score": 0
+            },
+            {
+              "label": "Informal review",
+              "score": 1
+            },
+            {
+              "label": "Documented privacy assessment",
+              "score": 2
+            },
+            {
+              "label": "Periodic reassessments + controls verified",
+              "score": 3
+            }
+          ]
+        },
+        {
+          "id": "appeal_process",
+          "text": "Appeal/grievance process for decisions that affect people (where applicable).",
+          "options": [
+            {
+              "label": "None",
+              "score": 0
+            },
+            {
+              "label": "Ad hoc handling",
+              "score": 1
+            },
+            {
+              "label": "Documented process",
+              "score": 2
+            },
+            {
+              "label": "Process measured + improved",
+              "score": 3
+            }
+          ]
+        },
+        {
+          "id": "ethical_alignment",
+          "text": "Alignment with publicly stated ethical AI principles (documented and applied).",
+          "options": [
+            {
+              "label": "Not aligned / unknown",
+              "score": 0
+            },
+            {
+              "label": "Stated intent only",
+              "score": 1
+            },
+            {
+              "label": "Mapped requirements + checks",
+              "score": 2
+            },
+            {
+              "label": "Governed alignment + periodic review",
+              "score": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "workforce_change",
+      "name": "Workforce & Change Management",
+      "weight": 0.1,
+      "questions": [
+        {
+          "id": "roles_defined",
+          "text": "Clear roles (product owner, data steward, model risk owner).",
+          "options": [
+            {
+              "label": "No roles defined",
+              "score": 0
+            },
+            {
+              "label": "Some roles defined",
+              "score": 1
+            },
+            {
+              "label": "Roles defined + accountable owners",
+              "score": 2
+            },
+            {
+              "label": "Roles measured + continuously improved",
+              "score": 3
+            }
+          ]
+        },
+        {
+          "id": "training_coverage",
+          "text": "Training coverage for leaders, developers, and end users.",
+          "options": [
+            {
+              "label": "No training",
+              "score": 0
+            },
+            {
+              "label": "One-time or optional training",
+              "score": 1
+            },
+            {
+              "label": "Role-based training plan",
+              "score": 2
+            },
+            {
+              "label": "Training measured + refreshed regularly",
+              "score": 3
+            }
+          ]
+        },
+        {
+          "id": "adoption_feedback",
+          "text": "User adoption plan and feedback loop (continuous improvement).",
+          "options": [
+            {
+              "label": "None",
+              "score": 0
+            },
+            {
+              "label": "Ad hoc feedback",
+              "score": 1
+            },
+            {
+              "label": "Structured feedback process",
+              "score": 2
+            },
+            {
+              "label": "Feedback linked to roadmap + KPIs",
+              "score": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sustainment_lifecycle",
+      "name": "Deployment & Sustainment",
+      "weight": 0.1,
+      "questions": [
+        {
+          "id": "deployment_readiness",
+          "text": "Deployment readiness (environment, approvals, release plan).",
+          "options": [
+            {
+              "label": "Not deployable",
+              "score": 0
+            },
+            {
+              "label": "Pilot only",
+              "score": 1
+            },
+            {
+              "label": "Production-ready with defined approvals",
+              "score": 2
+            },
+            {
+              "label": "Multiple deployments + standardized process",
+              "score": 3
+            }
+          ]
+        },
+        {
+          "id": "retraining_plan",
+          "text": "Model lifecycle plan (retraining cadence, evaluation gates).",
+          "options": [
+            {
+              "label": "No plan",
+              "score": 0
+            },
+            {
+              "label": "Plan exists but not enforced",
+              "score": 1
+            },
+            {
+              "label": "Plan enforced with scheduled reviews",
+              "score": 2
+            },
+            {
+              "label": "Lifecycle optimized with monitoring triggers",
+              "score": 3
+            }
+          ]
+        },
+        {
+          "id": "ownership_budget",
+          "text": "Sustainment ownership and budget (who maintains it long-term).",
+          "options": [
+            {
+              "label": "No owner / no budget",
+              "score": 0
+            },
+            {
+              "label": "Owner identified but funding unclear",
+              "score": 1
+            },
+            {
+              "label": "Owner + budget defined",
+              "score": 2
+            },
+            {
+              "label": "Owner + budget stable + reviewed annually",
+              "score": 3
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
